@@ -28,8 +28,13 @@ function playerChoice() {
     }
     input = input.toLowerCase();
     let check = correctInput(input)
-    if(check == true) {
-        console.log(input)
+    while (check == false) {
+        input = prompt("Type rock, paper, scissors");
+        while(input == null) {
+            input = prompt("Type rock, paper or scissors");
+        }
+        input = input.toLowerCase();
+        check = correctInput(input);
     }
     
 }
@@ -42,11 +47,7 @@ function getComputerChoice() {
 }
 
 function correctInput(choice) {
-    if (choices.includes(choice)) {
-        return true;
-    } else {
-        return false;
-    }
+    return choices.includes(choice)
 }
 
 game();
