@@ -1,61 +1,65 @@
-// 3 buttons (rock, paper, scissors)
-
-const choices = ["rock", "paper", "scissors"]
-
-//something that gets the choice and prints it
-function game() {
-    playRound();
-
-}
+const playerChoiceDisplay = document.getElementById('player-choice')
+const computerChoiceDisplay = document.getElementById('computer-choice')
+const resultDisplay = document.getElementById('result')
+const possibleChoices = document.querySelectorAll('button')
+let playerChoice
+let computerChoice
+let result
 
 
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (event) => {
+playerChoice = event.target.id
+playerChoiceDisplay.innerHTML = playerChoice
+generateComputerChoice()
+getResult()
 
+}))
 
-function playRound() {
-    const playerSelection = playerChoice();
-    const computerSelection = computerChoice();
-   
+function generateComputerChoice() {
+    const randomNumber = Math.floor(Math.random() * 3) +1
 
-
-    return("blah blah blah")
-}
-
-
-function playerChoice() {
-    let input = prompt("Type rock, paper or scissors");
-    while(input == null) {
-        input = prompt("Type rock, paper or scissors");
+    if (randomNumber === 1) {
+        computerChoice = "rock"
     }
-    input = input.toLowerCase();
-    let check = correctInput(input)
-    while (check == false) {
-        input = prompt("Type rock, paper, scissors");
-        while(input == null) {
-            input = prompt("Type rock, paper or scissors");
-        }
-        input = input.toLowerCase();
-        check = correctInput(input);
+    if (randomNumber === 2) {
+        computerChoice = "paper"
+    }
+    if (randomNumber === 3) {
+        computerChoice = "scissors"
     }
     
+    computerChoiceDisplay.innerHTML = computerChoice
 }
 
+function getResult() {
 
-//simultaneously get random computer choice 
-function getComputerChoice() {
-    return choices[Math.floor(Math.random()*choices.length)]
+    if (computerChoice === playerChoice) {
+        result = "It's a draw"
+    }
 
+    if (computerChoice === "rock" && playerChoice === "paper") {
+        result = "You win!"
+    }
+
+    if (computerChoice === "paper" && playerChoice === "rock") {
+        result = "You lose!"
+    }
+
+    if (computerChoice === "scissors" && playerChoice === "rock") {
+        result = "You win!"
+    }
+
+    if (computerChoice === "rock" && playerChoice === "scissors") {
+        result = "You lose!"
+    }
+
+    if (computerChoice === "scissors" && playerChoice === "paper") {
+        result = "You lose!"
+    }
+    if (computerChoice === "paper" && playerChoice === "scissors") {
+        result = "You win!"
+    }
+
+    
+resultDisplay.innerHTML = result
 }
-
-function correctInput(choice) {
-    return choices.includes(choice)
-}
-
-game();
-
-
-
-//compare the two choices which are predefined (what beats what)
-
-//print the result
-
-//loop it so that it's best of 5
