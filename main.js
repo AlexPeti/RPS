@@ -63,3 +63,27 @@ function getResult() {
     
 resultDisplay.innerHTML = result
 }
+
+
+let playerTallyDisplay = document.getElementById('player-tally-display')
+let computerTallyDisplay = document.getElementById('pc-tally-display')
+let resultTallyDisplay = document.getElementById('result-tally-display')
+let playerTally
+let computerTally
+let resultTally
+
+function getTallyDisplay(resultDisplay) {
+    if (result === "You win"){
+        let playerTallyDisplay = i; i=5; i++;
+    }
+    if (result === "You lose") {
+        let computerTallyDisplay = i; i=5; i++;
+    }
+
+}
+
+if (resultTallyDisplay === 5) {
+    alert("Game is over!")
+}
+
+resultTally.innerHTML = playerTallyDisplay,computerTallyDisplay
