@@ -98,6 +98,7 @@ else if (computerTallyDisplay == 5) {
 
 function restartGame() {
     if (playerTallyDisplay >= 5 || computerTallyDisplay >= 5) {
+        
         playerTallyDisplay = 0
         computerTallyDisplay = 0
         alert("Try again?")
