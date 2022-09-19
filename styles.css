@@ -11,5 +11,16 @@ button {
 }
 
 button:hover {
-    transition-duration: 1s;
+    background: rgb(188, 32, 202);
+    transition: 1.3s;
+}
+
+.player-class {
+    background-color:blue;
+
+}
+
+h2.computer-class {
+    color:red;
+
 }

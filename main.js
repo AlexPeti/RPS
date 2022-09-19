@@ -6,12 +6,19 @@ let playerChoice
 let computerChoice
 let result
 
+const playerTally = document.getElementById('player-tally')
+const computerTally = document.getElementById('pc-tally')
+let playerTallyDisplay = 0
+let computerTallyDisplay = 0
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (event) => {
 playerChoice = event.target.id
 playerChoiceDisplay.innerHTML = playerChoice
 generateComputerChoice()
 getResult()
+gameEnded()
+
+
 
 }))
 
@@ -59,31 +66,30 @@ function getResult() {
     if (computerChoice === "paper" && playerChoice === "scissors") {
         result = "You win!"
     }
+    if (result == "You win!"){
+        playerTallyDisplay += 1
+    }
+    else if (result == "You lose!"){
+        computerTallyDisplay += 1
+    }
+    else {
+        playerTallyDisplay +=1
+        computerTallyDisplay +=1
+    }
+    
 
     
+
+playerTally.innerHTML = ("You:" + playerTallyDisplay)
+computerTally.innerHTML = ("Computer:" + computerTallyDisplay)   
 resultDisplay.innerHTML = result
 }
 
-
-let playerTallyDisplay = document.getElementById('player-tally-display')
-let computerTallyDisplay = document.getElementById('pc-tally-display')
-let resultTallyDisplay = document.getElementById('result-tally-display')
-let playerTally
-let computerTally
-let resultTally
-
-function getTallyDisplay(resultDisplay) {
-    if (result === "You win"){
-        let playerTallyDisplay = i; i=5; i++;
+function gameEnded(playerTallyDisplay,computerTallyDisplay) {
+    if (playerTallyDisplay || computerTallyDisplay == 5) {
+        alert('Game ended!')
     }
-    if (result === "You lose") {
-        let computerTallyDisplay = i; i=5; i++;
-    }
-
 }
 
-if (resultTallyDisplay === 5) {
-    alert("Game is over!")
-}
 
-resultTally.innerHTML = playerTallyDisplay,computerTallyDisplay
+
