@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(196, 37, 109);
+    background-color: rgb(201, 55, 120);
     text-align: center;
     padding: 50px;
 }
@@ -11,7 +11,7 @@ button {
 }
 
 button:hover {
-    background: rgb(188, 32, 202);
+    background: rgb(193, 41, 207);
     transition: 1.3s;
 }
 
