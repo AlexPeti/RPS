@@ -6,6 +6,7 @@ let playerChoice
 let computerChoice
 let result
 
+
 const playerTally = document.getElementById('player-tally')
 const computerTally = document.getElementById('pc-tally')
 let playerTallyDisplay = 0
@@ -17,6 +18,7 @@ playerChoiceDisplay.innerHTML = playerChoice
 generateComputerChoice()
 getResult()
 gameEnded()
+restartGame()
 
 
 
@@ -85,11 +87,20 @@ computerTally.innerHTML = ("Computer:" + computerTallyDisplay)
 resultDisplay.innerHTML = result
 }
 
-function gameEnded(playerTallyDisplay,computerTallyDisplay) {
-    if (playerTallyDisplay || computerTallyDisplay == 5) {
-        alert('Game ended!')
-    }
+function gameEnded() {
+    if (playerTallyDisplay == 5) {
+    alert("Player wins the game!")
+}
+else if (computerTallyDisplay == 5) {
+    alert("Computer wins the game!")
+}
 }
 
-
-
+function restartGame() {
+    if (playerTallyDisplay >= 5 || computerTallyDisplay >= 5) {
+        playerTallyDisplay = 0
+        computerTallyDisplay = 0
+        alert("Try again?")
+        
+    }
+}
