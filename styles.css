@@ -15,12 +15,7 @@ button:hover {
     transition: 1.3s;
 }
 
-.player-class {
-    background-color:blue;
-
-}
-
-h2.computer-class {
-    color:red;
-
+h1 {
+    font-size: 80px;
+    background: linear-gradient(rgb(194, 171, 43), rgb(65, 172, 110));
 }
